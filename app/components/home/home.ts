@@ -1,8 +1,10 @@
 import {Component} from "angular2/core";
-
+import {Hero} from "../hero/hero";
 @Component({
     selector: "my-app",
-    templateUrl: "./app/components/home/home.html"
+    templateUrl: "./app/components/home/home.html",
+    directives: [Hero]
+
 })
 
 export class HomePage {
@@ -17,4 +19,5 @@ export class HomePage {
      }
         console.log(this.heroes);
     }
+    
 }

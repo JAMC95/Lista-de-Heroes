@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../hero/hero"], function(exports_1, context_1) {
+System.register(["angular2/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,40 +10,34 @@ System.register(["angular2/core", "../hero/hero"], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_1;
-    var HomePage;
+    var core_1;
+    var Hero;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (hero_1_1) {
-                hero_1 = hero_1_1;
             }],
         execute: function() {
-            HomePage = (function () {
-                function HomePage() {
-                    this.heroes = [];
+            Hero = (function () {
+                function Hero() {
                 }
-                HomePage.prototype.addHero = function (herotext) {
-                    if (herotext.value != "") {
-                        this.heroes.push(herotext.value);
-                        herotext.value = "";
-                    }
-                    console.log(this.heroes);
+                Hero.prototype.remove = function (i) {
+                    this.items.splice(i, 1);
                 };
-                HomePage = __decorate([
+                Hero = __decorate([
                     core_1.Component({
-                        selector: "my-app",
-                        templateUrl: "./app/components/home/home.html",
-                        directives: [hero_1.Hero]
+                        selector: "heroes",
+                        properties: ["items"]
+                    }),
+                    core_1.View({
+                        template: "\n    <ul class=\"list-group\">\n        <li class=\"list-group-item\" *ngFor=\"#hero of items #i=index\">\n            {{i+1}}.- {{hero}}\n        <span class=\"btn btn-xs btn-danger\" (click)=\"remove(i)\">Eliminar h\u00E9roe</span>\n        </li>\n    </ul>\n"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], HomePage);
-                return HomePage;
+                ], Hero);
+                return Hero;
             }());
-            exports_1("HomePage", HomePage);
+            exports_1("Hero", Hero);
         }
     }
 });
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=hero.js.map

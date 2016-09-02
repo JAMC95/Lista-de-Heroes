@@ -1,4 +1,6 @@
 <div class="col-md-6 col-md-offset-3 well">
     <input class="form-control" placeholder="Añadir nuevo héroe" #herotext><br>
     <button class="btn btn-block btn-success" (click)="addHero(herotext)">Añadir héroe</button>
+
+    <heroes [items]="heroes"></heroes>
 </div>
